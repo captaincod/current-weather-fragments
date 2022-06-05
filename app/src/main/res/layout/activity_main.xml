@@ -15,103 +15,103 @@
         tools:context=".MainActivity">
 
         <FrameLayout
+            android:id="@+id/container_fragm"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/container_fragm"/>
+            android:layout_height="wrap_content" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginHorizontal="25dp"
-            android:background="@color/davys_gray"/>
+            android:background="@color/davys_gray" />
 
         <EditText
             android:id="@+id/edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:hint="@string/editTextHint"
-            android:textSize="25sp"
-            android:inputType="text"
             android:backgroundTint="@color/burnt_sienna"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/edit_text_hint"
+            android:inputType="text"
             android:textColor="@color/davys_gray"
-            android:fontFamily="@font/montserrat"/>
+            android:textSize="24sp" />
 
         <Button
+            android:id="@+id/update_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
+            android:backgroundTint="@color/burnt_sienna"
+            android:fontFamily="@font/montserrat"
+            android:onClick="onClick"
             android:paddingVertical="10dp"
             android:text="@string/button_onclick"
             android:textAllCaps="false"
-            android:textSize="30sp"
-            android:onClick="onClick"
-            android:id="@+id/update_button"
-            android:backgroundTint="@color/burnt_sienna"
             android:textColor="@color/cultured"
-            android:fontFamily="@font/montserrat" />
+            android:textSize="29sp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:text="@{weather.city_name}"
             android:id="@+id/city_textview"
-            android:textColor="@color/davys_gray"
-            android:fontFamily="@font/montserrat"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="25dp"
-            android:background="@color/burnt_sienna"/>
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:textSize="25sp"
-            android:text="@{weather.weather_main}"
-            android:id="@+id/weather_textview"
+            android:text="@{weather.city_name}"
             android:textColor="@color/davys_gray"
-            android:fontFamily="@font/montserrat"/>
+            android:textSize="23sp" />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="25dp"
-            android:background="@color/burnt_sienna"/>
+            android:background="@color/burnt_sienna" />
         <TextView
+            android:id="@+id/weather_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="13dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:textSize="25sp"
-            android:text="@{weather.main_temp}"
-            android:id="@+id/temp_textview"
+            android:text="@{weather.weather_main}"
             android:textColor="@color/davys_gray"
-            android:fontFamily="@font/montserrat"/>
+            android:textSize="24sp" />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="25dp"
-            android:background="@color/burnt_sienna"/>
+            android:background="@color/burnt_sienna" />
+        <TextView
+            android:id="@+id/temp_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@{weather.main_temp}"
+            android:textColor="@color/davys_gray"
+            android:textSize="24sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="25dp"
+            android:background="@color/burnt_sienna" />
 
         <ImageView
             android:id="@+id/icon_view"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_gravity="center" />
+            android:layout_marginBottom="15dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -121,30 +121,44 @@
                 android:id="@+id/icons_only"
                 android:layout_width="155dp"
                 android:layout_height="wrap_content"
-                android:paddingVertical="10dp"
-                android:text="Only icon"
-                android:textSize="20sp"
-                android:textAllCaps="false"
-                android:layout_marginHorizontal="20dp"
                 android:layout_alignParentStart="true"
+                android:layout_marginHorizontal="20dp"
                 android:backgroundTint="@color/forest_green_crayola"
+                android:fontFamily="@font/montserrat"
+                android:paddingVertical="10dp"
+                android:text="@string/button_icon"
+                android:textAllCaps="false"
                 android:textColor="@color/cultured"
-                android:fontFamily="@font/montserrat" />
+                android:textSize="19sp" />
             <Button
                 android:id="@+id/text_only"
                 android:layout_width="155dp"
                 android:layout_height="wrap_content"
-                android:paddingVertical="10dp"
-                android:text="Only main"
-                android:textSize="20sp"
-                android:textAllCaps="false"
-                android:layout_marginHorizontal="20dp"
                 android:layout_alignParentEnd="true"
+                android:layout_marginHorizontal="20dp"
                 android:backgroundTint="@color/forest_green_crayola"
+                android:fontFamily="@font/montserrat"
+                android:paddingVertical="10dp"
+                android:text="@string/button_text"
+                android:textAllCaps="false"
                 android:textColor="@color/cultured"
-                android:fontFamily="@font/montserrat" />
+                android:textSize="19sp" />
 
         </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:onClick="toLanguages"
+            android:backgroundTint="@color/forest_green_crayola"
+            android:fontFamily="@font/montserrat"
+            android:paddingVertical="10dp"
+            android:text="@string/choose_language"
+            android:textAllCaps="false"
+            android:textColor="@color/cultured"
+            android:textSize="19sp" />
 
     </LinearLayout>
 </layout>

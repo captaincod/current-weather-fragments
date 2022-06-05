@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tempo attuale in frammenti</string>
+    <string name="menu_title">Lingua</string>
+    <string name="apikey">6a70852e18d3ce404b5e2fc592fe9b28</string>
+    <string name="button_onclick">Aggiornare</string>
+    <string name="edit_text_hint">Il nome della città</string>
+    <string name="button_icon">Solo icona</string>
+    <string name="button_text">Solo testo</string>
+    <string name="choose_language">Scegli la lingua</string>
+</resources>
