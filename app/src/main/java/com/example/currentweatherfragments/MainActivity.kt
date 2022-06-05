@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var iconView: ImageView
-    lateinit var toIconFragment: Button
-    lateinit var toTextFragment: Button
+    lateinit var chooseFragment: Button
     lateinit var editText: EditText
     lateinit var weatherText: TextView
 
@@ -52,21 +51,23 @@ class MainActivity : AppCompatActivity() {
         TextFragment = TextFragment()
 
         iconView = findViewById(R.id.icon_view)
-        toIconFragment = findViewById(R.id.icons_only)
-        toTextFragment = findViewById(R.id.text_only)
+        chooseFragment = findViewById(R.id.choose_fragment)
         editText = findViewById(R.id.edit_text)
         weatherText = findViewById(R.id.weather_textview)
 
-        toTextFragment.setOnClickListener {
-            val ft = fm.beginTransaction()
-            ft.replace(R.id.container_fragm, TextFragment)
-            ft.commit() }
+        chooseFragment.setOnClickListener {
+            val dialogFragment = AlertDialogFragments()
+            val manager = supportFragmentManager
+            dialogFragment.show(manager, "dialog") }
 
-        toIconFragment.setOnClickListener {
-            val ft = fm.beginTransaction()
-            ft.replace(R.id.container_fragm, IconFragment)
-            ft.commit() }
-
+    }
+    fun onTextFragment(){
+        ft.replace(R.id.container_fragm, TextFragment)
+        ft.commit()
+    }
+    fun onIconFragment(){
+        ft.replace(R.id.container_fragm, IconFragment)
+        ft.commit()
     }
 
     fun loadWeather() {
@@ -119,6 +120,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     @DelicateCoroutinesApi
     fun onClick(view: android.view.View) {
         GlobalScope.launch (Dispatchers.IO) {
@@ -135,6 +137,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
 }
 
 
