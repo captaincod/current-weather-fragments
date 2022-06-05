@@ -34,7 +34,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var IconFragment: Fragment
     lateinit var TextFragment: Fragment
 
-    var indexImage = ""
+    lateinit var cityName: String
+    lateinit var weatherMain: String
+    lateinit var mainTemp: String
+    lateinit var icon: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,14 +57,6 @@ class MainActivity : AppCompatActivity() {
         editText = findViewById(R.id.edit_text)
         weatherText = findViewById(R.id.weather_textview)
 
-        val fr = fm.findFragmentById(R.id.container_fragm)
-        if (fr == null) {
-            TextFragment = TextFragment()
-            fm.beginTransaction().add(R.id.container_fragm, TextFragment)
-                .commit()
-        } else
-            TextFragment = fr
-
         toTextFragment.setOnClickListener {
             val ft = fm.beginTransaction()
             ft.replace(R.id.container_fragm, TextFragment)
@@ -75,29 +70,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loadWeather() {
-        val city = editText.text.toString()
+        val city = editText.text.toString().filter { !it.isWhitespace() }
         val apiKey: String = getString(R.string.apikey)
         val weatherURL =
             "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric"
         Log.d("mytag", weatherURL)
-        lateinit var cityName: String
-        lateinit var weatherMain: String
-        lateinit var mainTemp: String
-        lateinit var icon: String
 
         try{
             val stream = URL(weatherURL).content as InputStream
             val data = Scanner(stream).nextLine()
             val jsondata = data.trimIndent()
             val weatherData: WeatherJSON = Gson().fromJson<WeatherJSON>(jsondata, WeatherJSON::class.java)
-            Log.d("mytag", "data: $weatherData")
             cityName = weatherData.name
             weatherMain = weatherData.weather[0].main
             mainTemp = weatherData.main.temp
             icon = weatherData.weather[0].icon
-            indexImage = icon
             binding.weather = Weather(cityName, weatherMain, mainTemp)
-            Log.d("mytag", icon)
             this@MainActivity.runOnUiThread {
                 when(icon){
                     "01d" -> iconView.setImageResource(R.drawable.icon01d)
@@ -124,6 +112,10 @@ class MainActivity : AppCompatActivity() {
             this@MainActivity.runOnUiThread {
                 Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show()
             }
+            cityName = "City name"
+            weatherMain = "Weather"
+            mainTemp = "Temperature"
+            icon = "01n"
         }
     }
 
@@ -132,6 +124,14 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch (Dispatchers.IO) {
             loadWeather()
 
+            val bundleText = Bundle()
+            bundleText.putString("main", weatherMain)
+            bundleText.putString("temperature", mainTemp)
+            TextFragment.arguments = bundleText
+
+            val bundleIcon = Bundle()
+            bundleIcon.putString("textIcon", icon)
+            IconFragment.arguments = bundleIcon
 
         }
     }

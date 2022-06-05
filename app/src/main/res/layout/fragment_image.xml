@@ -5,12 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".ImageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
+        android:id="@+id/image_view_fragment"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="3dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/icon01n"/>
+        android:src="@drawable/icon01n"
+        android:contentDescription="icon" />
 
 </FrameLayout>

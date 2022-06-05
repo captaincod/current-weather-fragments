@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="burnt_sienna">#FFEC6E4C</color>
+    <color name="davys_gray">#FF48484A</color>
+    <color name="cultured">#FFF2F2F1</color>
+    <color name="forest_green_crayola">#FF60A561</color>
 </resources>

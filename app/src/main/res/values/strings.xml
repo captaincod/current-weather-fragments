@@ -3,6 +3,4 @@
     <string name="apikey">6a70852e18d3ce404b5e2fc592fe9b28</string>
     <string name="button_onclick">Update</string>
     <string name="editTextHint">Input city name</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
